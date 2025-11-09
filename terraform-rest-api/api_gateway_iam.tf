@@ -45,13 +45,16 @@ resource "aws_iam_policy" "project_name_hello_world_api_log_policy" {
       {
         Effect = "Allow",
         Action = [
+          # all of those permissions are needed otherwise you get an error
+          # https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html?utm_source=chatgpt.com#set-up-access-logging-permissions
+          # https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonAPIGatewayPushToCloudWatchLogs.html
+          "logs:CreateLogGroup",
           "logs:CreateLogStream",
           "logs:DescribeLogGroups",
           "logs:DescribeLogStreams",
-          "logs:FilterLogEvents",
-          "logs:CreateLogGroup",
+          "logs:PutLogEvents",
           "logs:GetLogEvents",
-          "logs:PutLogEvents"
+          "logs:FilterLogEvents"
         ],
         Resource = [
           aws_cloudwatch_log_group.project_name_hello_world_api_log_group.arn,
