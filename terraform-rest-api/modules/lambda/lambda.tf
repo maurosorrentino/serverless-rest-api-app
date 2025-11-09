@@ -9,6 +9,7 @@ resource "aws_lambda_function" "project_name_lambda" {
   role             = aws_iam_role.project_name_lambda_exec_role.arn
   handler          = var.handler
   runtime          = var.runtime
+  memory_size      = var.memory_size
   filename         = data.archive_file.project_name_lambda_zip.output_path
   source_code_hash = data.archive_file.project_name_lambda_zip.output_base64sha256
 

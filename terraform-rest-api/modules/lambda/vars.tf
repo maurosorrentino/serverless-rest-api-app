@@ -25,3 +25,7 @@ variable "runtime" {
 variable "env_vars" {
   type = map(string)
 }
+
+variable "memory_size" {
+  type = number
+}
