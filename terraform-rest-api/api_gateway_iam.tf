@@ -31,7 +31,9 @@ resource "aws_iam_role" "project_name_hello_world_api_role" {
     Version = "2012-10-17"
     Statement = [{
       Effect    = "Allow",
-      Principal = { Service = "apigateway.amazonaws.com" },
+      Principal = { 
+        Service = "apigateway.amazonaws.com" 
+      },
       Action    = "sts:AssumeRole"
     }]
   })
