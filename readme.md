@@ -37,10 +37,8 @@ To find your public IP go to [https://whatismyipaddress.com/](https://whatismyip
 ## Considerations
 
 ### 1. Lambda Packaging
-Terraform currently **zips the Lambda function locally** before deploying.  
-This happens on every plan/apply, even if the Lambda code hasn’t changed.  
-For larger Lambda packages, this can significantly slow down deployments
-and rolling back becomes harder.
+Terraform currently **zips the Lambda function locally** before deploying. This happens on every plan/apply, even if the Lambda 
+code hasn’t changed. For larger Lambda packages, this can significantly slow down deployments and rolling back becomes harder.
 
 > **Recommendation:**  
 > Move the zipping process to your CI/CD pipeline.  
