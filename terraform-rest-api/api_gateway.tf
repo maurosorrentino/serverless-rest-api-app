@@ -1,6 +1,10 @@
 resource "aws_api_gateway_rest_api" "project_name_hello_world_api" {
   name        = "${var.project_name}-hello-world-api"
   description = "REST API returning Hello World"
+
+  endpoint_configuration {
+    types = ["REGIONAL"]
+  }
 }
 
 module "project_name_hello_world_api_route" {

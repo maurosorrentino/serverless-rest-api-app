@@ -44,7 +44,7 @@ For larger Lambda packages, this can significantly slow down deployments.
 > **Recommendation:**  
 > Move the zipping process to your CI/CD pipeline.  
 > Refer to the existing example pipelines here:
-> [serverless-MVP-app Pipelines](https://github.com/maurosorrentino/serverless-MVP-app/tree/main)
+> [serverless-MVP-app Pipelines](https://github.com/maurosorrentino/serverless-MVP-app/tree/main/.github/workflows)
 
 ### 2. API Accessibility
 The API is still accessible via the **public internet**, though restricted by IP.
