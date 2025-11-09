@@ -1,7 +1,3 @@
-variable "lambda_exec_role_name" {
-  type = string
-}
-
 variable "function_name" {
   type = string
 }

@@ -25,7 +25,7 @@ resource "aws_api_gateway_rest_api_policy" "project_name_hello_world_api_resourc
 }
 
 resource "aws_iam_role" "project_name_hello_world_api_role" {
-  name = "APIGatewayCloudWatchLogsRole"
+  name = "${var.project_name}APIGatewayCloudWatchLogsRole"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -40,7 +40,7 @@ resource "aws_iam_role" "project_name_hello_world_api_role" {
 }
 
 resource "aws_iam_policy" "project_name_hello_world_api_log_policy" {
-  name = "ApiGatewayPushToCloudWatch"
+  name = "${var.project_name}ApiGatewayPushToCloudWatch"
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [

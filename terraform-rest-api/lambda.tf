@@ -5,7 +5,6 @@ module "project_name_hello_world_lambda" {
   handler               = "get_hello_world_page.lambda_handler"
   runtime               = "python3.11"
   source_dir            = "../app"
-  lambda_exec_role_name = "${var.project_name}-hello-world-lambda-exec-role"
   memory_size           = 128
   region                = var.region
   account_id            = local.account_id
@@ -24,7 +23,6 @@ module "project_name_test_lambda" {
   handler               = "get_hello_world_page.lambda_handler"
   runtime               = "python3.11"
   source_dir            = "../app"
-  lambda_exec_role_name = "${var.project_name}-test-lambda-exec-role"
   memory_size           = 128
   region                = var.region
   account_id            = local.account_id

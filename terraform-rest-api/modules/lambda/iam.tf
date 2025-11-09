@@ -1,5 +1,5 @@
 resource "aws_iam_role" "project_name_lambda_exec_role" {
-  name = var.lambda_exec_role_name
+  name = "${var.function_name}_exec_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -14,18 +14,18 @@ resource "aws_iam_role" "project_name_lambda_exec_role" {
 }
 
 resource "aws_iam_policy" "project_name_lambda_policy" {
-  name = "LambdaPushToCloudWatch"
+  name = "${var.function_name}LambdaPushToCloudWatch"
   policy = jsonencode({
-      "Version" : "2012-10-17",
-      "Statement" : [
+      Version= "2012-10-17",
+      Statement= [
         {
-          "Effect" : "Allow",
-          "Action" : [
+          Effect= "Allow",
+          Action= [
             "logs:CreateLogGroup",
             "logs:CreateLogStream",
             "logs:PutLogEvents"
           ],
-          "Resource" : [
+          Resource= [
             "arn:aws:logs:${var.region}:${var.account_id}:log-group:/aws/lambda/${var.function_name}:*",
             "arn:aws:logs:${var.region}:${var.account_id}:log-group:/aws/lambda/${var.function_name}:log-stream:*"
           ]
@@ -45,4 +45,6 @@ resource "aws_lambda_permission" "apigw_invoke" {
   function_name = var.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = var.invoke_source_arn
+
+  depends_on = [aws_lambda_function.project_name_lambda]
 }
