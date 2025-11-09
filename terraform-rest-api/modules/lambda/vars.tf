@@ -29,3 +29,11 @@ variable "env_vars" {
 variable "memory_size" {
   type = number
 }
+
+variable "region" {
+  type = string
+}
+
+variable "account_id" {
+  type = string
+}
