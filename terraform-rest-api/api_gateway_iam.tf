@@ -59,11 +59,9 @@ resource "aws_iam_policy" "project_name_hello_world_api_log_policy" {
           "logs:FilterLogEvents"
         ],
         Resource = [
-          aws_cloudwatch_log_group.project_name_hello_world_api_log_group.arn,
           "${aws_cloudwatch_log_group.project_name_hello_world_api_log_group.arn}:*",
           # automatically created by aws api gateway
-          "arn:aws:logs:${var.region}:${local.account_id}:log-group:/aws/apigateway/welcome:*",
-          "arn:aws:logs:${var.region}:${local.account_id}:log-group:/aws/apigateway/welcome:log-stream:*"
+          "arn:aws:logs:${var.region}:${local.account_id}:log-group:/aws/apigateway/welcome:*"
         ]
       }
     ]

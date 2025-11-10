@@ -25,10 +25,7 @@ resource "aws_iam_policy" "project_name_lambda_policy" {
             "logs:CreateLogStream",
             "logs:PutLogEvents"
           ],
-          Resource= [
-            "arn:aws:logs:${var.region}:${var.account_id}:log-group:/aws/lambda/${var.function_name}:*",
-            "arn:aws:logs:${var.region}:${var.account_id}:log-group:/aws/lambda/${var.function_name}:log-stream:*"
-          ]
+          Resource= "arn:aws:logs:${var.region}:${var.account_id}:log-group:/aws/lambda/${var.function_name}:*"
         }
       ]
     })

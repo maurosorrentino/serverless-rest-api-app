@@ -13,7 +13,7 @@ variable "project_name" {
 variable "home_ip" {
   type        = string
   description = "ip allowed to call API gateway"
-  default     = "143.58.251.75"
+  default     = "143.58.253.75"
 }
 
 variable "environment" {
