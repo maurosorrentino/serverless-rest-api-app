@@ -1,4 +1,4 @@
-# the following uses deafult for quick plan and apply without a pipeline 
+# the following uses default for quick plan and apply without a pipeline
 variable "region" {
   type    = string
   default = "eu-west-2"

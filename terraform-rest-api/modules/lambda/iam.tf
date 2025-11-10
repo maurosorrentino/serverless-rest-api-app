@@ -39,7 +39,7 @@ resource "aws_iam_role_policy_attachment" "project_name_lambda_basic" {
   policy_arn = aws_iam_policy.project_name_lambda_policy.arn
 }
 
-resource "aws_lambda_permission" "apigw_invoke" {
+resource "aws_lambda_permission" "project_name_api_invoke" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
   function_name = var.function_name
